@@ -12,7 +12,7 @@ public class Account {
     }
 
     // Method with no return
-    public void seeBalance() {
+    public void getBalance() {
         System.out.println(titular + " have: " + balance + " CVE");
     }
 }
