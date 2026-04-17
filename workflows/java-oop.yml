@@ -1,0 +1,29 @@
+name: Java OOP Check
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v4
+
+    - name: Install Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
+    - name: Compile each package separately
+      run: |
+          for dir in */ ; do
+            if [ -d "$dir" ]; then
+              echo "Compiling $dir"
+              mkdir -p "$dir/classes"
+              javac -d "$dir/classes" $(find "$dir" -name "*.java")
+            fi
+          done
