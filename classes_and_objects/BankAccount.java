@@ -14,7 +14,7 @@ class Account {
     }
 
     // Method
-    public void seeBalance() {
+    public void getBalance() {
         System.out.println(titular + " have: " + balance + " CVE");
     }
 }
@@ -26,8 +26,8 @@ public class BankAccount {
         Account account1 = new Account("Hardy", 50000);
         Account account2 = new Account("Merly", 12000);
 
-        account1.seeBalance();
-        account2.seeBalance();
+        account1.getBalance();
+        account2.getBalance();
 
     }
 
