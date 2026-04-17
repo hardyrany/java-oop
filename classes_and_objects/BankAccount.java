@@ -1,5 +1,7 @@
 package classes_and_objects;
 
+// A class is the blueprint. An object is the instance created from that blueprint.
+
 // Class
 class Account {
 
