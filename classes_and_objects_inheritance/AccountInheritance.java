@@ -47,6 +47,7 @@ public class AccountInheritance {
         // Create object from child class
         CreditAccount creditaccount1 = new CreditAccount("Maria", 3000, 10000);
 
+        // Calling method
         creditaccount1.getBalance(); // inheritance from father class -> Maria: 3000.0 CVE
         creditaccount1.getLimit(); // own child class -> Limit available: 10000.0 CVE
     }
