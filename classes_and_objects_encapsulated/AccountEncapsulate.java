@@ -34,7 +34,7 @@ class Account {
             return;
         }
         balance += value;
-        System.out.println("Deposit:" + value + " CVE");
+        System.out.println("Deposit: " + value + " CVE");
     }
 
     public void withdraw(double value) {
