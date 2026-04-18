@@ -18,12 +18,15 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
 
-    - name: Compile each package separately
+    - name: Compile Java projects
       run: |
-          for dir in */ ; do
-            if [ -d "$dir" ]; then
-              echo "Compiling $dir"
-              mkdir -p "$dir/classes"
-              javac -d "$dir/classes" $(find "$dir" -name "*.java")
-            fi
-          done
+        find . -name "*.java" | awk -F/ '{print $2}' | sort -u | while read dir; do
+          echo "Compiling project: $dir"
+
+          files=$(find "$dir" -name "*.java")
+
+          if [ -n "$files" ]; then
+            mkdir -p "$dir/classes"
+            javac -d "$dir/classes" $files
+          fi
+        done
