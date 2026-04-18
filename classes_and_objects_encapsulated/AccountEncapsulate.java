@@ -43,6 +43,7 @@ class Account {
             return;
         }
         balance -= value;
+        System.out.println("Withdraw: " + value + " CVE");
     }
 
 }
