@@ -20,13 +20,16 @@ jobs:
 
     - name: Compile Java projects
       run: |
-        find . -name "*.java" | awk -F/ '{print $2}' | sort -u | while read dir; do
-          echo "Compiling project: $dir"
+        for dir in projects/*; do
+          if [ -d "$dir" ]; then
+            echo "Compiling project: $dir"
 
-          files=$(find "$dir" -name "*.java")
-
-          if [ -n "$files" ]; then
             mkdir -p "$dir/classes"
-            javac -d "$dir/classes" $files
+
+            find "$dir" -name "*.java" > sources.txt
+
+            if [ -s sources.txt ]; then
+              javac -d "$dir/classes" @sources.txt
+            fi
           fi
         done
