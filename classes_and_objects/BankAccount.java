@@ -1,6 +1,8 @@
 package classes_and_objects;
 
-// A class is the blueprint. An object is the instance created from that blueprint.
+/* Class and objects
+   A class is the blueprint. An object is the instance created from that blueprint.
+*/
 
 // Class
 class Account {
@@ -15,12 +17,13 @@ class Account {
         this.balance = initialBalance;
     }
 
-    // Method
+    // Method with no return value
     public void getBalance() {
         System.out.println(titular + " have: " + balance + " CVE");
     }
 }
 
+// Main class
 public class BankAccount {
     public static void main(String[] args) {
 
@@ -30,7 +33,6 @@ public class BankAccount {
 
         account1.getBalance();
         account2.getBalance();
-
     }
 
 }
